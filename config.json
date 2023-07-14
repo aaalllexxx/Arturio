@@ -8,6 +8,7 @@
     "/index": "HomeScreen",
     "/login": "LoginScreen",
     "/register": "RegisterScreen",
-    "/chat": "ChatScreen"
+    "/chat": "ChatScreen",
+    "/account": "AccountScreen"
   }
 }

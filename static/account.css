@@ -1,0 +1,9 @@
+.account_head {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.icon {
+    width: 50px;
+    margin: 10px;
+}

@@ -20,16 +20,18 @@
                 <img src="/static/imgs/nothing.jpg" alt="nothing" class="nothing">
             </div>
             {% else %}
-            {% for el in data %}
-                <div class="news_container">
-                    <div class="new">
-                        <div class="image">
-                            <img src="{{el.image_uri}}" alt="" class="new_image">
+                {% for el in data %}
+                    {% if el.owner_id != user.id %}
+                        <div class="news_container">
+                            <div class="new">
+                                <div class="image">
+                                    <img src="{{el.image_uri}}" alt="" class="new_image">
+                                </div>
+                                <p class="new_text">{{el.text}}</p>
+                            </div>
                         </div>
-                        <p class="new_text">{{el.text}}</p>
-                    </div>
-                </div>
-            {% endfor %}
+                    {% endif %}
+                {% endfor %}
             {% endif %}
         </div>
     </body>

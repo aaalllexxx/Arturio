@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Arturio Shiro - account</title>
+      <link rel="stylesheet" href="/static/main.css">
+      <link rel="stylesheet" href="/static/index.css">
+      <link rel="stylesheet" href="/static/account.css">
+  </head>
+  <body>
+    <div class="container">
+        {% include 'header.html' %}
+        <div class="account_head">
+            <img src="/static/imgs/user.png" alt="user" class="icon">
+            <h3 class="title">Аккаунт пользователя {{user.name}}</h3>
+        </div>
+        {% if not data or user.id not in ids%}
+        <div class="placeholder">
+            <h1 class="placeholder_text">
+                Здесь скоро появятся новости.
+            </h1>
+            <img src="/static/imgs/nothing.jpg" alt="nothing" class="nothing">
+        </div>
+        {% else %}
+            {% for el in data %}
+                {% if el.owner_id == user.id %}
+                    <div class="news_container">
+                        <div class="new">
+                            <div class="image">
+                                <img src="{{el.image_uri}}" alt="" class="new_image">
+                            </div>
+                            <p class="new_text">{{el.text}}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+  </body>
+</html>
