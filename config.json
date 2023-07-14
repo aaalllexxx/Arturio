@@ -9,6 +9,8 @@
     "/login": "LoginScreen",
     "/register": "RegisterScreen",
     "/chat": "ChatScreen",
-    "/account": "AccountScreen"
+    "/account": "AccountScreen",
+    "/about": "AboutScreen",
+    "/publish": "PostScreen"
   }
 }

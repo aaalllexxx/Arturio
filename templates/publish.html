@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Arturio Shiro - Login</title>
+        <link rel="stylesheet" href="/static/form.css">
+        <link rel="stylesheet" href="/static/main.css">
+    </head>
+    <body>
+        <div class="container">
+            {% include 'header.html' %}
+            <div class="form_outer">
+                <h2 class="label">Publish</h2>
+                <form action="/publish" method="post" class="form" enctype="multipart/form-data">
+                    <input type="file" name="photo">
+                    <input type="text" name="message" class="text_input">
+                    <input type="submit" class="submit">
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>
