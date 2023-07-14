@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arturio Shiro - chat</title>
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/chat.css">
+</head>
+    <body>
+        <div class="container">
+            {% include 'header.html' %}
+            <div class="messages_outer">
+                <div class="messages">
+                    {% for message in data %}
+                        {% if message.from_id == user.id %}
+                            <div class="message my">
+                        <p class="text">{{message.text}}</p>
+                        <img src="/static/imgs/user.png" alt="img" class="userimage">
+                    </div>
+                        {% else %}
+                            <div class="message">
+                                <img src="/static/imgs/user.png" alt="img" class="userimage">
+                            <p class="text">{{message.text}}</p>
+                    </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="bottom">
+                <form action="/chat" method="post" class="form">
+                    <input type="text" name="message" class="text_input">
+                    <input type="submit" class="submit">
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+
+            setInterval(() => {
+                let elem = document.querySelector('.text_input');
+                if (elem != document.activeElement){
+                    location.reload()
+                }
+            }, 5000)
+    </script>
+</html>

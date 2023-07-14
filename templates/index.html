@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arturio - main page</title>
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+    <body>
+        <div class="container">
+            {% include 'header.html' %}
+            {% if not data %}
+            <div class="placeholder">
+                <h1 class="placeholder_text">
+                    Здесь скоро появятся новости.
+                </h1>
+                <img src="/static/imgs/nothing.jpg" alt="nothing" class="nothing">
+            </div>
+            {% else %}
+            {% for el in data %}
+                <div class="news_container">
+                    <div class="new">
+                        <div class="image">
+                            <img src="{{el.image_uri}}" alt="" class="new_image">
+                        </div>
+                        <p class="new_text">{{el.text}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </body>
+</html>
